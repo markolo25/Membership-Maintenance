@@ -17,7 +17,8 @@ namespace Membership_Maintenance
         private string _lastName;
         private string _email;
 
-        public string FirstName {
+        public string FirstName
+        {
             get
             {
 
@@ -54,21 +55,22 @@ namespace Membership_Maintenance
         public Add_Membership()
         {
             InitializeComponent();
-            
+
         }
 
         private void Save_Button_Click(object sender, EventArgs e)
         {
-            if (Validator.LengthInRange(FirstName_TextBox, 0, 25) 
-                && Validator.LengthInRange(LastName_TextBox, 0, 25) 
-                && Validator.LengthInRange(Email_TextBox, 0, 25) 
+            if (Validator.LengthInRange(FirstName_TextBox, 0, 25)
+                && Validator.LengthInRange(LastName_TextBox, 0, 25)
+                && Validator.LengthInRange(Email_TextBox, 0, 25)
                 && Validator.IsValidEmail(Email_TextBox))
             {
                 this._firstName = FirstName_TextBox.Text;
                 this._lastName = LastName_TextBox.Text;
                 this._email = Email_TextBox.Text;
             }
-            else {
+            else
+            {
                 return;
             }
             this.DialogResult = DialogResult.OK;

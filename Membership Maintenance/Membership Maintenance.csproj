@@ -53,6 +53,7 @@
       <DependentUpon>Add_Membership.cs</DependentUpon>
     </Compile>
     <Compile Include="Member.cs" />
+    <Compile Include="MembershipData.cs" />
     <Compile Include="MembershipList.cs" />
     <Compile Include="Membership_Maintenance.cs">
       <SubType>Form</SubType>

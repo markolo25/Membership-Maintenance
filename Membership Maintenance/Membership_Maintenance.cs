@@ -18,13 +18,16 @@ namespace Membership_Maintenance
         public Membership_Maintenance()
         {
             InitializeComponent();
+            memberList.Write();
+            MembershipData.GetMembership(memberList);
             listBox1.DataSource = memberList.getList();
-            
+
         }
 
         //Add
         private void Add_Click(object sender, EventArgs e)
         {
+            memberList.Changed += new MembershipList.ChangeHandler(MembershipData.SaveMembership);
             Add_Membership add = new Add_Membership();
             var dialog = add.ShowDialog();
             Member newMem = new Member(add.FirstName, add.LastName, add.Email);
@@ -38,25 +41,39 @@ namespace Membership_Maintenance
             }
 
             listBox1.DataSource = memberList.getList();
-
         }
 
         //Delete
         private void Delete_Click(object sender, EventArgs e)
         {
+            memberList.Changed += new MembershipList.ChangeHandler(MembershipData.SaveMembership);
+            int selectedIndex = listBox1.SelectedIndex;
+            if (selectedIndex != -1)
+            {
+                {
+                    try
+                    {
+                        DialogResult button = MessageBox.Show("Are you sure you want to delete",
+                            "Confirm Delete", MessageBoxButtons.YesNo);
+                        if (button == DialogResult.Yes)
+                        {
+                            memberList -= memberList[selectedIndex];
+                        }
+                    }
+                    catch
+                    {
+                    }
+                    listBox1.DataSource = memberList.getList();
+                }
+            }
 
-            listBox1.SelectedItem
         }
 
         //Exit
         private void Exit_Click(object sender, EventArgs e)
         {
+            memberList.Save();
             System.Windows.Forms.Application.Exit();
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
         }
     }
 }

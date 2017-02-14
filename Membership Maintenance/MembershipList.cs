@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace Membership_Maintenance
 {
-    class MembershipList
+
+    class MembershipList : IEnumerable<Member>
     {
+
+        public delegate void ChangeHandler(MembershipList memList);
+        public event ChangeHandler Changed;
         List<Member> _members;
 
         public MembershipList()
@@ -37,12 +42,32 @@ namespace Membership_Maintenance
 
         public void Add(Member mem)
         {
-            _members.Add(mem);
+            if (!this.contains(mem))
+            {
+                _members.Add(mem);
+            }
+            try
+            {
+                if (Changed != null)
+                {
+                    Changed(this);
+                }
+            }
+            catch { }
+
         }
 
         public void Remove(Member mem)
         {
-            _members.Remove(mem);
+            try
+            {
+                _members.Remove(mem);
+                if (Changed != null)
+                {
+                    Changed(this);
+                }
+            }
+            catch { }
         }
 
         /// <summary>
@@ -50,7 +75,7 @@ namespace Membership_Maintenance
         /// </summary>
         public void Write()
         {
-            
+            MembershipData.GetMembership(this);
         }
 
         /// <summary>
@@ -58,11 +83,11 @@ namespace Membership_Maintenance
         /// </summary>
         public void Save()
         {
-
+            MembershipData.SaveMembership(this);
         }
 
-        public static MembershipList operator+ (MembershipList memList, Member mem)
-        { 
+        public static MembershipList operator +(MembershipList memList, Member mem)
+        {
             memList.Add(mem);
             return memList;
         }
@@ -78,7 +103,7 @@ namespace Membership_Maintenance
             List<string> listBox = new List<string>();
             foreach (Member mem in _members)
             {
-               listBox.Add(mem.GetDisplayText());
+                listBox.Add(mem.GetDisplayText());
             }
             return listBox;
         }
@@ -88,14 +113,14 @@ namespace Membership_Maintenance
             return _members.Contains(mem);
         }
 
+        public IEnumerator<Member> GetEnumerator()
+        {
+            return this._members.GetEnumerator();
+        }
 
-
-
-
-
-
-
-
-
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this._members.GetEnumerator();
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Membership_Maintenance
 {
-    class Member: IEquatable<Member>
+    class Member : IEquatable<Member>
     {
         private string _firstName;
         private string _lastName;
@@ -61,8 +61,8 @@ namespace Membership_Maintenance
         {
 
         }
-        
-        public Member(string FirstName, string LastName, string Email )
+
+        public Member(string FirstName, string LastName, string Email)
         {
             _firstName = FirstName;
             _lastName = LastName;
@@ -76,8 +76,8 @@ namespace Membership_Maintenance
 
         public bool Equals(Member other)
         {
-            return (this._firstName == other._firstName 
-                && this._lastName == other._lastName 
+            return (this._firstName == other._firstName
+                && this._lastName == other._lastName
                 && this._email == other._email);
         }
     }
