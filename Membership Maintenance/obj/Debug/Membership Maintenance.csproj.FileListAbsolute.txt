@@ -8,3 +8,13 @@
 \\mac\home\documents\visual studio 2015\Projects\Membership Maintenance\Membership Maintenance\obj\Debug\Membership Maintenance.pdb
 \\mac\home\documents\visual studio 2015\Projects\Membership Maintenance\Membership Maintenance\obj\Debug\Membership_Maintenance.Add_Membership.resources
 \\mac\home\documents\visual studio 2015\Projects\Membership Maintenance\Membership Maintenance\obj\Debug\Membership_Maintenance.Membership_Maintenance.resources
+\\Mac\Home\Documents\Visual Studio 2015\Projects\Membership-Maintenance\Membership Maintenance\bin\Debug\Membership Maintenance.exe.config
+\\Mac\Home\Documents\Visual Studio 2015\Projects\Membership-Maintenance\Membership Maintenance\obj\Debug\Membership Maintenance.exe
+\\Mac\Home\Documents\Visual Studio 2015\Projects\Membership-Maintenance\Membership Maintenance\obj\Debug\Membership Maintenance.pdb
+\\Mac\Home\Documents\Visual Studio 2015\Projects\Membership-Maintenance\Membership Maintenance\bin\Debug\Membership Maintenance.exe
+\\Mac\Home\Documents\Visual Studio 2015\Projects\Membership-Maintenance\Membership Maintenance\bin\Debug\Membership Maintenance.pdb
+\\Mac\Home\Documents\Visual Studio 2015\Projects\Membership-Maintenance\Membership Maintenance\obj\Debug\Membership Maintenance.csprojResolveAssemblyReference.cache
+\\Mac\Home\Documents\Visual Studio 2015\Projects\Membership-Maintenance\Membership Maintenance\obj\Debug\Membership_Maintenance.Add_Membership.resources
+\\Mac\Home\Documents\Visual Studio 2015\Projects\Membership-Maintenance\Membership Maintenance\obj\Debug\Membership_Maintenance.Membership_Maintenance.resources
+\\Mac\Home\Documents\Visual Studio 2015\Projects\Membership-Maintenance\Membership Maintenance\obj\Debug\Membership_Maintenance.Properties.Resources.resources
+\\Mac\Home\Documents\Visual Studio 2015\Projects\Membership-Maintenance\Membership Maintenance\obj\Debug\Membership Maintenance.csproj.GenerateResource.Cache

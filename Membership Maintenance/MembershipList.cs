@@ -9,7 +9,7 @@ namespace Membership_Maintenance
     class MembershipList
     {
         List<Member> _members;
-        
+
         public MembershipList()
         {
             _members = new List<Member>();
@@ -26,6 +26,62 @@ namespace Membership_Maintenance
                 _members[i] = value;
             }
         }
+
+        public int Count
+        {
+            get
+            {
+                return _members.Count();
+            }
+        }
+
+        public void Add(Member mem)
+        {
+            _members.Add(mem);
+        }
+
+        public void Remove(Member mem)
+        {
+            _members.Remove(mem);
+        }
+
+        /// <summary>
+        /// Reads file and adds to list of members
+        /// </summary>
+        public void Write()
+        {
+            
+        }
+
+        /// <summary>
+        /// Writes file from the list of members
+        /// </summary>
+        public void Save()
+        {
+
+        }
+
+        public static MembershipList operator+ (MembershipList memList, Member mem)
+        { 
+            memList.Add(mem);
+            return memList;
+        }
+
+        public static MembershipList operator -(MembershipList memList, Member mem)
+        {
+            memList.Remove(mem);
+            return memList;
+        }
+
+
+
+
+
+
+
+
+
+
 
 
     }

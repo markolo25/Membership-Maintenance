@@ -26,8 +26,8 @@ namespace Membership_Maintenance
         {
             Add_Membership add = new Add_Membership();
             var dialog = add.ShowDialog();
-            string hi = add.FirstName;
-            _items.Add(add.FirstName);
+            var doug = new Member(add.FirstName, add.LastName, add.Email);
+            _items.Add(doug.GetDisplayText());
             listBox1.DataSource = null;
             listBox1.DataSource = _items;
 
