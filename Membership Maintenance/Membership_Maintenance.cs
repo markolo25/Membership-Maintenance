@@ -13,12 +13,13 @@ namespace Membership_Maintenance
 {
     public partial class Membership_Maintenance : Form
     {
-        
-        List<string> _items = new List<string>();
+
+        MembershipList memberList = new MembershipList();
         public Membership_Maintenance()
         {
             InitializeComponent();
-            listBox1.DataSource = _items;
+            listBox1.DataSource = memberList.getList();
+            
         }
 
         //Add
@@ -26,11 +27,17 @@ namespace Membership_Maintenance
         {
             Add_Membership add = new Add_Membership();
             var dialog = add.ShowDialog();
-            var doug = new Member(add.FirstName, add.LastName, add.Email);
-            _items.Add(doug.GetDisplayText());
-            listBox1.DataSource = null;
-            listBox1.DataSource = _items;
+            Member newMem = new Member(add.FirstName, add.LastName, add.Email);
+            if (dialog == DialogResult.OK && !memberList.contains(newMem))
+            {
+                memberList.Add(newMem);
+            }
+            else if (dialog == DialogResult.OK)
+            {
+                MessageBox.Show("User already in database", "Duplicate User", MessageBoxButtons.OK);
+            }
 
+            listBox1.DataSource = memberList.getList();
 
         }
 
@@ -38,6 +45,7 @@ namespace Membership_Maintenance
         private void Delete_Click(object sender, EventArgs e)
         {
 
+            listBox1.SelectedItem
         }
 
         //Exit

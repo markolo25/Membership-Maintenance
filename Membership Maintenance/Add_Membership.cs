@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Membership_Maintenance
 {
     public partial class Add_Membership : Form
@@ -19,6 +20,7 @@ namespace Membership_Maintenance
         public string FirstName {
             get
             {
+
                 return _firstName;
             }
             set
@@ -57,9 +59,18 @@ namespace Membership_Maintenance
 
         private void Save_Button_Click(object sender, EventArgs e)
         {
-            this._firstName = FirstName_TextBox.Text;
-            this._lastName = LastName_TextBox.Text;
-            this._email = Email_TextBox.Text;
+            if (Validator.LengthInRange(FirstName_TextBox, 0, 25) 
+                && Validator.LengthInRange(LastName_TextBox, 0, 25) 
+                && Validator.LengthInRange(Email_TextBox, 0, 25) 
+                && Validator.IsValidEmail(Email_TextBox))
+            {
+                this._firstName = FirstName_TextBox.Text;
+                this._lastName = LastName_TextBox.Text;
+                this._email = Email_TextBox.Text;
+            }
+            else {
+                return;
+            }
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

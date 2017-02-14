@@ -73,7 +73,20 @@ namespace Membership_Maintenance
             return memList;
         }
 
+        public List<string> getList()
+        {
+            List<string> listBox = new List<string>();
+            foreach (Member mem in _members)
+            {
+               listBox.Add(mem.GetDisplayText());
+            }
+            return listBox;
+        }
 
+        public bool contains(Member mem)
+        {
+            return _members.Contains(mem);
+        }
 
 
 
