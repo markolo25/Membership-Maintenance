@@ -98,15 +98,15 @@ namespace Membership_Maintenance
         /// Tweaked Slightly since it was giving an error with newer VS
         /// </summary>
         /// <param name="textBox">TextBox to be evaluated</param>
-        /// <param name="min">Minimum value in the range</param>
-        /// <param name="max">Maximum value in the range</param>
+        /// <param name="min">Minimum value in the range for length</param>
+        /// <param name="max">Maximum value in the range length</param>
         /// <returns></returns>
         public static bool LengthInRange(TextBox textBox, decimal min, decimal max)
         {
             decimal number = textBox.Text.Length;
             if (number < min || number > max)
             {
-                MessageBox.Show(textBox.Tag + " must be between " + min + " and " + max + ".",
+                MessageBox.Show(textBox.Tag + " must be between " + min + " and " + max + " long.",
                     textBox.Tag + "Input too long", MessageBoxButtons.OK);
                 textBox.Focus();
                 return false;

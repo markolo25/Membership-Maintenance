@@ -15,6 +15,9 @@ namespace Membership_Maintenance
     {
 
         MembershipList memberList = new MembershipList();
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
         public Membership_Maintenance()
         {
             InitializeComponent();
@@ -24,7 +27,11 @@ namespace Membership_Maintenance
 
         }
 
-        //Add
+        /// <summary>
+        /// Function called when Add_Click event is Triggered
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_Click(object sender, EventArgs e)
         {
             memberList.Changed += new MembershipList.ChangeHandler(MembershipData.SaveMembership);
@@ -43,7 +50,11 @@ namespace Membership_Maintenance
             listBox1.DataSource = memberList.getList();
         }
 
-        //Delete
+        /// <summary>
+        /// Function Called when Delete_Click event is triggered 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Delete_Click(object sender, EventArgs e)
         {
             memberList.Changed += new MembershipList.ChangeHandler(MembershipData.SaveMembership);
@@ -69,7 +80,11 @@ namespace Membership_Maintenance
 
         }
 
-        //Exit
+        /// <summary>
+        /// Function called when Exit_Click event is triggered
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Exit_Click(object sender, EventArgs e)
         {
             memberList.Save();

@@ -71,6 +71,8 @@
             this.FirstName_TextBox.Name = "FirstName_TextBox";
             this.FirstName_TextBox.Size = new System.Drawing.Size(210, 20);
             this.FirstName_TextBox.TabIndex = 3;
+            this.FirstName_TextBox.Tag = "First Name";
+            this.FirstName_TextBox.TextChanged += new System.EventHandler(this.FirstName_TextBox_TextChanged);
             // 
             // LastName_TextBox
             // 
@@ -78,6 +80,7 @@
             this.LastName_TextBox.Name = "LastName_TextBox";
             this.LastName_TextBox.Size = new System.Drawing.Size(210, 20);
             this.LastName_TextBox.TabIndex = 4;
+            this.LastName_TextBox.Tag = "Last Name";
             // 
             // Email_TextBox
             // 
@@ -85,6 +88,7 @@
             this.Email_TextBox.Name = "Email_TextBox";
             this.Email_TextBox.Size = new System.Drawing.Size(210, 20);
             this.Email_TextBox.TabIndex = 5;
+            this.Email_TextBox.Tag = "E-Mail";
             // 
             // Save_Button
             // 

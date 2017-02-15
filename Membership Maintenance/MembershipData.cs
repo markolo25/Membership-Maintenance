@@ -9,10 +9,11 @@ namespace Membership_Maintenance
 {
     static class MembershipData
     {
-        private static string path = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\MembershipList.txt";
+        private static string path =  
+            System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\MembershipList.txt";
 
         /// <summary>
-        /// Read File and add elements to list
+        /// Read File and add elements to Membershiplist
         /// </summary>
         /// <param name="memList">The membership list we are writing to</param>
         public static void GetMembership(MembershipList memList)
@@ -39,7 +40,7 @@ namespace Membership_Maintenance
         }
 
         /// <summary>
-        /// Write elements of list to a file
+        /// Write elements of MembershipList to a file
         /// </summary>
         /// <param name="memList">The membership list we are reading from</param>
         public static void SaveMembership(MembershipList memList)

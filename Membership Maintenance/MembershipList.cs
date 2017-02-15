@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 namespace Membership_Maintenance
 {
 
+    /// <summary>
+    /// Collections Class for Member Types
+    /// </summary>
     class MembershipList : IEnumerable<Member>
     {
 
@@ -15,6 +18,10 @@ namespace Membership_Maintenance
         public event ChangeHandler Changed;
         List<Member> _members;
 
+        /// <summary>
+        /// Default Constructor for MemberList
+        /// Initialize _members as a List\<Member> 
+        /// </summary>
         public MembershipList()
         {
             _members = new List<Member>();
@@ -32,6 +39,10 @@ namespace Membership_Maintenance
             }
         }
 
+        /// <summary>
+        /// Property to access the .Count of
+        /// Memberlist
+        /// </summary>
         public int Count
         {
             get
@@ -40,6 +51,10 @@ namespace Membership_Maintenance
             }
         }
 
+        /// <summary>
+        /// Method for adding a member to the MembershipList
+        /// </summary>
+        /// <param name="mem">member being added</param>
         public void Add(Member mem)
         {
             if (!this.contains(mem))
@@ -57,6 +72,10 @@ namespace Membership_Maintenance
 
         }
 
+        /// <summary>
+        /// Method for removing a member to the MembershipList
+        /// </summary>
+        /// <param name="mem">member being removed</param>
         public void Remove(Member mem)
         {
             try
@@ -73,31 +92,43 @@ namespace Membership_Maintenance
         /// <summary>
         /// Reads file and adds to list of members
         /// </summary>
-        public void Write()
-        {
-            MembershipData.GetMembership(this);
-        }
+        public void Write()=> MembershipData.GetMembership(this);
 
         /// <summary>
         /// Writes file from the list of members
         /// </summary>
-        public void Save()
-        {
-            MembershipData.SaveMembership(this);
-        }
+        public void Save()=> MembershipData.SaveMembership(this);
 
+
+        /// <summary>
+        /// Overloads + operator to call the add function
+        /// </summary>
+        /// <param name="memList"></param>
+        /// <param name="mem"></param>
+        /// <returns></returns>
         public static MembershipList operator +(MembershipList memList, Member mem)
         {
             memList.Add(mem);
             return memList;
         }
 
+
+        /// <summary>
+        /// Overloads the - operator to call the remove function
+        /// </summary>
+        /// <param name="memList"></param>
+        /// <param name="mem"></param>
+        /// <returns></returns>
         public static MembershipList operator -(MembershipList memList, Member mem)
         {
             memList.Remove(mem);
             return memList;
         }
 
+        /// <summary>
+        /// Method to generate a List<string> for filling in the textbox
+        /// </summary>
+        /// <returns>List<string> for listbox</returns>
         public List<string> getList()
         {
             List<string> listBox = new List<string>();
@@ -108,16 +139,28 @@ namespace Membership_Maintenance
             return listBox;
         }
 
-        public bool contains(Member mem)
-        {
-            return _members.Contains(mem);
-        }
+        /// <summary>
+        /// Checks if a member is in Memberlist
+        /// </summary>
+        /// <param name="mem"></param>
+        /// <returns></returns>
+        public bool contains(Member mem) => _members.Contains(mem);
 
+        /// <summary>
+        /// returns _member's IEnumerator
+        /// by calling .GetEnumerator
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator<Member> GetEnumerator()
         {
             return this._members.GetEnumerator();
         }
 
+        /// <summary>
+        /// returns _member's IEnumerator
+        /// by calling .GetEnumerator
+        /// </summary>
+        /// <returns>IEnumertor belonging to the memberclass</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this._members.GetEnumerator();

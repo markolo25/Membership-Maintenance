@@ -12,35 +12,9 @@ namespace Membership_Maintenance
         private string _lastName;
         private string _email;
 
-        public string Email
-        {
-            get
-            {
-                return _email;
-            }
-            set
-            {
-                if (value.Length > 25)
-                {
-                    _email = value;
-                }
-            }
-        }
-        public string LastName
-        {
-            get
-            {
-                return _lastName;
-            }
-            set
-            {
-                if (value.Length > 25)
-                {
-                    _lastName = value;
-                }
-            }
-        }
-
+        /// <summary>
+        /// Property for FirstName
+        /// </summary>
         public string FirstName
         {
             get
@@ -56,12 +30,61 @@ namespace Membership_Maintenance
             }
         }
 
+        /// <summary>
+        /// Property for LastName
+        /// </summary>
+        public string LastName
+        {
+            get
+            {
+                return _lastName;
+            }
+            set
+            {
+                if (value.Length > 25)
+                {
+                    _lastName = value;
+                }
+            }
+        }
 
+        /// <summary>
+        /// Property for Email
+        /// </summary>
+        public string Email
+        {
+            get
+            {
+                return _email;
+            }
+            set
+            {
+                if (value.Length > 25)
+                {
+                    _email = value;
+                }
+            }
+        }
+
+
+
+
+
+
+        /// <summary>
+        /// Default Constructor for Member
+        /// </summary>
         public Member()
         {
 
         }
 
+        /// <summary>
+        /// Overloaded Constructor for Member
+        /// </summary>
+        /// <param name="FirstName"></param>
+        /// <param name="LastName"></param>
+        /// <param name="Email"></param>
         public Member(string FirstName, string LastName, string Email)
         {
             _firstName = FirstName;
@@ -69,11 +92,20 @@ namespace Membership_Maintenance
             _email = Email;
         }
 
+        /// <summary>
+        /// Creates a formatted string for the textbox
+        /// </summary>
+        /// <returns>formatted string for displaying</returns>
         public string GetDisplayText()
         {
             return _firstName + " " + _lastName + " - " + _email;
         }
 
+        /// <summary>
+        /// Determines equality of 2 Member objects
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public bool Equals(Member other)
         {
             return (this._firstName == other._firstName
