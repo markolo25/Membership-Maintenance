@@ -21,8 +21,8 @@ namespace Membership_Maintenance
             // if the directory doesn't exist, create it
             try
             {
-                if (!Directory.Exists(path))
-                    Directory.CreateDirectory(path);
+                if (!File.Exists(path))
+                    using (StreamWriter deleter = new StreamWriter(path, false)) { }
             }
             catch { }
 
@@ -49,8 +49,8 @@ namespace Membership_Maintenance
             // if the directory doesn't exist, create it
             try
             {
-                if (!Directory.Exists(path))
-                    Directory.CreateDirectory(path);
+                if (!File.Exists(path))
+                    using (StreamWriter deleter = new StreamWriter(path, false)) { }
             }
             catch { }
 
